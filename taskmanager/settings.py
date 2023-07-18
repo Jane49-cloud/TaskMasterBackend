@@ -3,11 +3,11 @@ import os
 from datetime import timedelta
 import django
 from django.utils.encoding import force_str
+
 django.utils.encoding.force_text = force_str
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -19,7 +19,6 @@ SECRET_KEY = 'django-insecure-)_lx20r0le^g@x#0dcu-%0hbl*rd!%4wfv@=3+vh8pam5iz!oz
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,9 +37,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 
-
 ]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -104,23 +101,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'taskmanager.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'rKXQrG1dMN2cUY76DXZj',
-        'HOST': 'containers-us-west-121.railway.app',
-        'PORT': '5649',
-
+        'NAME': 'TaskMaster',
+        'USER': 'ndirangu',
+        'PASSWORD': 'ha0H63ixYXXpNdy8PPiopQ',
+        'HOST': 'shady-reptile-7995.8nj.cockroachlabs.cloud',  #
+        'PORT': '26257',
+        # 'OPTIONS': {
+        #     'sslmode': 'verify-full',
+        # },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -140,7 +137,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -151,7 +147,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -182,7 +177,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "api.User"
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.Google0Auth2',
+    # 'social_core.backends.google.Google0Auth2',
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 DJOSER = {
@@ -211,7 +207,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email',
                                    'https://www.googleapis.com/auth/userinfo.profile', 'openid']
 SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name, last_name']
-
 
 SOCIAL_AUTH_FACEBOOK_KEY = '[YOUR FACEBOOK API KEY]'
 SOCIAL_AUTH_FACEBOOK_SECRET = '[YOUR FACEBOOK API SECRET]'
