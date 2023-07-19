@@ -108,16 +108,17 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TaskMaster',
-        'USER': 'ndirangu',
-        'PASSWORD': 'ha0H63ixYXXpNdy8PPiopQ',
-        'HOST': 'shady-reptile-7995.8nj.cockroachlabs.cloud',  #
-        'PORT': '26257',
+        'NAME': 'postgres',  # The name of your database
+        'USER': 'postgres',
+        'PASSWORD': 'ndirangu01',
+        'HOST': 'postgres-1.c1gdz78yxbzl.us-east-1.rds.amazonaws.com',  # The hostname of the database server
+        'PORT': '5432',  # The default port for PostgreSQL is 5432
         # 'OPTIONS': {
-        #     'sslmode': 'verify-full',
+        #     'sslmode': 'require',  # Use SSL for the connection
         # },
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
